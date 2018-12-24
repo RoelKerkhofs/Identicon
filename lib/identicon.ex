@@ -9,8 +9,8 @@ def main(input) do
 end
 
 def pick_color(image) do
-  %Identicon.Image{hex: hexlist} = image
-  [r, g, b | _tail] = hexlist
+  %Identicon.Image{hex: [r, g, b | _tail]} = image
+  
   [r, g, b]
 end
 
