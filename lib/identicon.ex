@@ -10,22 +10,22 @@ def main(input) do
     |> filter_odd_squares
     |> build_pixel_map
     |> draw_image
-    |> save_image (input)
+    |> save_image(input)
 end
 
 def save_image(image, input) do
-  File.write("#{filename}.png", image)
+  File.write("#{input}.png", image)
 end
 
 def draw_image(%Identicon.Image{color: color, pixel_map: pixel_map}) do
-  image = :edg.create(250, 250)
-  fill = :edg.color(color)
+  image = :egd.create(250, 250)
+  fill = :egd.color(color)
 
-  Enum.each pixel_map fn({start, stop}) ->
-    :edg.filledRectangle(image, start, stop, fill)
+  Enum.each pixel_map, fn({start, stop}) ->
+    :egd.filledRectangle(image, start, stop, fill)
   end
 
-  :edg.render(image)
+  :egd.render(image)
 end
 
 def build_pixel_map (%Identicon.Image{grid: grid} = image) do
