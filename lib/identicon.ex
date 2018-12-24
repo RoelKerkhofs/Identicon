@@ -6,7 +6,7 @@ def main(input) do
     input
     |> hash_input
     |> pick_color
-    |>build_grid
+    |> build_grid
 end
 
 def build_grid(%Identicon.Image{hex: hex} = image) do
