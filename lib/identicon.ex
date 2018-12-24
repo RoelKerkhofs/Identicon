@@ -10,8 +10,8 @@ def main(input) do
     |> filter_odd_squares
 end
 
-def filter_odd_squares(%Identicon.Image{grid: grid}) do
-  Enum.filter grid, fn({code, _index}) ->
+def filter_odd_squares(%Identicon.Image{grid: grid} = image) do
+  grid =  Enum.filter grid, fn({code, _index}) ->
     rem(code, 2) == 0
   end
 
