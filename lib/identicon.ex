@@ -5,6 +5,13 @@ defmodule Identicon do
 def main(input) do
     input
     |> hash_input
+    |> pick_color
+end
+
+def pick_color(image) do
+  %Identicon.Image{hex: hexlist} = image
+  [r, g, b | _tail] = hexlist
+  [r, g, b]
 end
 
 def hash_input(input)do
